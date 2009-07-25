@@ -1,5 +1,5 @@
 task :environment do
-	require File.dirname(__FILE__) + '/lib/all'
+	require File.dirname(__FILE__) + '/couchdb-simple-demo'
 end
 
 require 'benchmark'

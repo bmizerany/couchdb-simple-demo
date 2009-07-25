@@ -1,7 +1,13 @@
-require 'rubygems'
 require 'sinatra'
+require 'couchrest'
 
-require File.dirname(__FILE__) + '/lib/all'
+def db
+	url = ENV['COUCHDB_URL']
+	@db ||= CouchRest.database!(url)
+end
+
+require File.dirname(__FILE__) + '/lib/access_log'
+require File.dirname(__FILE__) + '/lib/counting'
 
 before do
 	AccessLog.create_from_request(request)
